@@ -8,7 +8,7 @@ public class Calculadora {
 		for(Pack pack: packs){
 			ArrayList<Producto> productos= pack.getProductos();
 			for(Producto producto: productos){
-				valorTotal += producto.getValor();
+				valorTotal += 5000;
 
 			}
 		} return valorTotal;

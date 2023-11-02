@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Sucursal {
 
-	ArrayList<Camion> camiones;
+	private ArrayList<Camion> camiones;
 	private int codigo;
 	private String region;
 
@@ -23,7 +23,12 @@ public class Sucursal {
 			}
 		}
 	}
-
+	public int getCodigo(){
+		return codigo;
+	}
+	public ArrayList<Camion> getCamiones(){
+		return camiones;
+	}
 
 	public void modificarEstado(int codigo, boolean estado) {
 		for(Camion camion: camiones){

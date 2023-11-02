@@ -21,5 +21,15 @@ public class Empresa {
 			}
 		}
 	}
+	public Sucursal getSucursal(int codigo){
+		for(Sucursal sucursal : sucursales){
+			if(sucursal.getCodigo() == codigo){
+				return sucursal;
+			}
+		}return null;
+	}
+	public ArrayList<Sucursal> getSucursales(){
+		return sucursales;
+		}
 
 }
