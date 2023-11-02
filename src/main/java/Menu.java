@@ -2,6 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Menu {
+    Scanner scanner= new Scanner(System.in);
     Empresa empresa= new Empresa("Empresa1", "Direccion1");
     public void menuPrincipal(){
         while (true) {
@@ -25,11 +26,9 @@ public class Menu {
         System.out.println("9. Salir");
     }
     public void procesarOpcion(int opcion) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese una opción");
         switch (opcion) {
             case 1:
-                Scanner scanner = new Scanner(System.in);
                 System.out.println("Ingrese el código de la sucursal");
                 int codigoSucursal = validarInt();
                 System.out.println("Ingrese la región de la sucursal");
@@ -100,30 +99,34 @@ public class Menu {
                 }
             case 7:
                 System.out.println("Ingrese el codigo de la sucursal a la que desea agregar el pack");
-                int codigoSucursal4 = validarInt();
-                ArrayList<Sucursal> sucursales4 = empresa.getSucursales();
-                Sucursal sucursal4 = empresa.getSucursal(codigoSucursal4);
-                for (Sucursal s : sucursales4) {
-                    if (sucursal4.getCodigo() == codigoSucursal4) {
+                int codigoSucursal5 = validarInt();
+                ArrayList<Sucursal> sucursales5 = empresa.getSucursales();
+                Sucursal sucursal5 = empresa.getSucursal(codigoSucursal5);
+                for (Sucursal s : sucursales5) {
+                    if (sucursal5.getCodigo() == codigoSucursal5) {
                         System.out.println("Ingrese el codigo del camión que desea agregar el pack");
                         int codigoCamion3 = validarInt();
-                        ArrayList<Camion> camiones = sucursal4.getCamiones();
+                        ArrayList<Camion> camiones = sucursal5.getCamiones();
                         Camion camion3 = sucursal4.getCamion(codigoCamion3);
                         for (Camion c : camiones) {
                             if (camion3.getCodigo() == codigoCamion3) {
-                                System.out.println("Ingrese el codigo del pack que desea agregar");
-                                int codigoPack = validarInt();
-                                ArrayList<Pack> packs = camion3.getPacks();
-                                Pack pack = camion3.getPack(codigoPack);
-                                for (Pack p : packs) {
-                                    if (pack.getCodigo() == codigoPack) {
-                                        System.out.println("Ingrese el codigo del producto que desea eliminar");
-                                        int codigoProducto = validarInt();
-                                        ArrayList<Producto> productos = pack.getProductos();
-                                        Producto producto = pack.getProducto(codigoProducto);
-                                        for (Producto pr : productos) {
-                                            if (producto.getCodigo() == codigoProducto) {
-                                                pack.eliminarProducto(codigoProducto);
+                                System.out.println("Ingrese el codigo del flete ");
+                                int codigoFlete = validarInt();
+                                ArrayList<Flete> fletes = camion3.getFletes();
+                                Flete flete2 = camion3.getFlete(codigoFlete);
+                                for (Flete flete : fletes) {
+                                    if (flete2.getCodigo() == codigoFlete) {
+                                        System.out.println("Ingrese el codigo del pack que desea agregar");
+                                        int codigoPack = validarInt();
+                                        ArrayList<Pack> packs = flete.getPacks();
+                                        Pack pack = flete.getPack(codigoPack);
+                                        for (Pack pa : packs) {
+                                            if (pack.getCodigo() == codigoProducto) {
+
+                                                System.out.println("Ingrese el codigo del producto que desea eliminar");
+                                                int codigoProducto = validarInt();
+                                                packs.remove(codigoProducto);
+
                                                 break;
                                             } else {
                                                 System.out.println("Producto no hallado");
@@ -159,23 +162,22 @@ public class Menu {
                         Camion camion3 = sucursal4.getCamion(codigoCamion3);
                         for (Camion c : camiones) {
                             if (camion3.getCodigo() == codigoCamion3) {
-                                System.out.println("Ingrese el codigo del pack que desea agregar");
-                                int codigoPack = validarInt();
-                                ArrayList<Pack> packs = camion3.getPacks();
-                                Pack pack = camion3.getPack(codigoPack);
-                                for (Pack p : packs) {
-                                    if (pack.getCodigo() == codigoPack) {
-                                        System.out.println("Ingrese el codigo del producto que desea agregar");
-                                        int codigoProducto = validarInt();
-                                        ArrayList<Producto> productos = pack.getProductos();
-                                        Producto producto = pack.getProducto(codigoProducto);
-                                        for (Producto pr : productos) {
-                                            if (producto.getCodigo() == codigoProducto) {
-                                                System.out.println("Ingrese el nombre del producto");
-                                                String nombreProducto = scanner.nextLine();
-                                                System.out.println("Ingrese el valor del producto");
-                                                int valorProducto = validarInt();
-                                                Producto producto1 = new Producto(codigoProducto, nombreProducto, valorProducto);
+                                System.out.println("Ingrese el codigo del flete ");
+                                int codigoFlete = validarInt();
+                                ArrayList<Flete> fletes = camion3.getFletes();
+                                Flete flete = camion3.getFlete(codigoFlete);
+                                for (Flete flete : fletes) {
+                                    if (flete.getCodigo() == codigoFlete) {
+                                        System.out.println("Ingrese el codigo del pack que desea agregar");
+                                        int codigoPack = validarInt();
+                                        ArrayList<Pack> packs = flete.getPacks();
+                                        Pack pack = flete.getPack(codigoPack);
+                                        for (Pack pa : packs) {
+                                            if (pack.getCodigo() == codigoProducto) {
+
+                                                System.out.println("Ingrese el tipo del producto que desea agregar");
+                                                String tipoProducto = this.scanner.nextLine();
+                                                Producto producto1 = new Producto(tipoProducto);
                                                 pack.agregarProducto(producto1);
                                                 break;
                                             } else {
