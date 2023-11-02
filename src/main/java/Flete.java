@@ -9,6 +9,13 @@ public class Flete {
 	public int getCodigo() {
 		return codigo;
 	}
+	public Pack getPack(int codigo) {
+		for (Pack pack : packs) {
+			if (pack.getCodigo() == codigo){
+				return  pack;
+			}
+		}return null;
+	}
 
 	public Flete(Pack pack, String descripcion) {
 		this.packs = new ArrayList<Pack>();
@@ -16,7 +23,7 @@ public class Flete {
 		this.codigo++;
 		this.descripcion = descripcion;
 	}
-	public ArrayList<Pack> getPack() {
+	public ArrayList<Pack> getPacks() {
 		return packs;
 	}
 	public void agregarPack(Pack pack){

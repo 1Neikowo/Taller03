@@ -38,5 +38,13 @@ public class Sucursal {
 		}
 	}
 
+	public Camion getCamion(int codigo){
+		for(Camion camion: camiones){
+			if (camion.getCodigo() == codigo){
+				return camion;
+			}
+		}return null;
+	}
+
 
 }
