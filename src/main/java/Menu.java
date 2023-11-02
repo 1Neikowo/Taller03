@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
 public class Menu {
 
     public void mostrarMenu(){
@@ -12,8 +14,19 @@ public class Menu {
         System.out.println("8. Calcular valor total de un flete");
         System.out.println("9. Salir");
     }
+    public void leerOpcion(){
+        int opcion = ;
+        System.out.println("Ingrese una opción");
+    }
 
+    public int validarInt(){
+        Scanner scanner = new Scanner(System.in);
+        try{
+            return scanner.nextInt();
+        }catch(InputMismatchException e){
+            System.out.println("Ingrese un número válido");
+        }
 
-
+    }
 
 }
