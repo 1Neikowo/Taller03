@@ -7,6 +7,16 @@ public class Camion {
 	private String patente;
 	private String descripcion;
 	private boolean estado;
+	public Flete getFlete(int codigo) {
+		for (Flete f : fletes) {
+			if (f.getCodigo() == codigo) {
+				return f;
+			}
+		}return null;
+	}
+	public ArrayList<Flete> getFletes() {
+		return fletes;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

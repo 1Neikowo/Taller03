@@ -6,11 +6,18 @@ public class Flete {
 	private int codigo =0;
 	private String descripcion;
 
+	public int getCodigo() {
+		return codigo;
+	}
+
 	public Flete(Pack pack, String descripcion) {
 		this.packs = new ArrayList<Pack>();
 		packs.add(pack);
 		this.codigo++;
 		this.descripcion = descripcion;
+	}
+	public ArrayList<Pack> getPack() {
+		return packs;
 	}
 	public void agregarPack(Pack pack){
 		if (packs.size() <=5){
