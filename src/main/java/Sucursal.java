@@ -1,37 +1,37 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Sucursal {
 
-	Collection<Camion> camiones;
+	ArrayList<Camion> camiones;
 	private int codigo;
 	private String region;
 
-	/**
-	 * 
-	 * @param camion
-	 */
+	public Sucursal(int codigo, String region){
+		this.camiones = new ArrayList<Camion>();
+		this.codigo = codigo;
+		this.region=region;
+	}
 	public void agregarCamion(Camion camion) {
-		// TODO - implement Sucursal.agregarCamion
-		throw new UnsupportedOperationException();
+		camiones.add(camion);
 	}
 
-	/**
-	 * 
-	 * @param codigo
-	 */
+
 	public void eliminarCamion(int codigo) {
-		// TODO - implement Sucursal.eliminarCamion
-		throw new UnsupportedOperationException();
+		for(Camion camion: camiones){
+			if(camion.getCodigo() == codigo){
+				camiones.remove(camion);
+			}
+		}
 	}
 
-	/**
-	 * 
-	 * @param codigo
-	 * @param estado
-	 */
+
 	public void modificarEstado(int codigo, boolean estado) {
-		// TODO - implement Sucursal.modificarEstado
-		throw new UnsupportedOperationException();
+		for(Camion camion: camiones){
+			if(camion.getCodigo() == codigo){
+				camion.setEstado(estado);
+			}
+		}
 	}
+
 
 }
