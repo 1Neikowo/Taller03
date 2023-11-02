@@ -25,8 +25,12 @@ public class Pack {
 		}
 	}
 
-	public void eliminarProducto(Producto producto) {
-		productos.remove(producto);
+	public void eliminarProducto(int codigo) {
+		for (Producto producto : productos){
+			if (producto.getCodigo() == codigo) {
+				productos.remove(producto);
+			}
+		}
 	}
 
 	public ArrayList<Producto> getProductos() {
